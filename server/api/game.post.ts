@@ -1,4 +1,4 @@
-import { generateIdForGame } from '$/helpers'
+import { generateIdForGame } from '$/games'
 
 export default defineEventHandler(event => {
   const gameId = generateIdForGame()

@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import {
-  GameCreation,
-  InvitationToPlay,
-  usePlayerState,
-  requestDeleteGame,
-  requestNewGame,
-} from '@/main-page'
+import { GameCreation, InvitationToPlay, usePlayerState } from '@/main-page'
 
-const { gameId, createGame, deleteGame } = await usePlayerState()
+const playerState = usePlayerState()
 
-const onNewGame = () => requestNewGame().then(createGame)
-const onDeleteGame = () => requestDeleteGame().then(deleteGame)
+await playerState.fetchData()
 </script>
 
 <template>
-  <InvitationToPlay v-if="gameId" @delete-game="onDeleteGame" />
-  <GameCreation v-else @new-game="onNewGame" />
+  <InvitationToPlay v-if="playerState.gameId" />
+  <GameCreation v-else />
 </template>

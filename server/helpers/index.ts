@@ -1,1 +1,1 @@
-export * from './random-game-id'
+export * from './random-string'

@@ -1,6 +1,6 @@
-export * from './hooks/player-state.hook'
+import './index.scss'
 
-export * from './api/game-requests'
+export * from './store/player-state'
 
 export { default as GameCreation } from './components/GameCreation.vue'
 
