@@ -23,5 +23,9 @@
     "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "pinia": "^2.0.29"
   }
 }

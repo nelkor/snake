@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 
 export default defineNuxtConfig({
+  modules: [['@pinia/nuxt', { autoImports: ['defineStore'] }]],
   alias: {
     '#': resolve('./app'),
     '@': resolve('./client'),
