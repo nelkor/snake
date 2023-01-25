@@ -1,3 +1,4 @@
-export interface PlayerState {
-  gameId?: string
-}
+export type UserState = {
+  gameId: string
+  role: 0 | 1 | 2
+} | null

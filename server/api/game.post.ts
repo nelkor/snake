@@ -1,12 +1,20 @@
 import { generateIdForGame } from '$/games'
+import { getUserBySession, setUserState } from '$/sessions'
+import { UserState } from '#/types'
 
-export default defineEventHandler(event => {
-  const gameId = generateIdForGame()
+export default defineEventHandler<UserState>(event => {
+  const user = getUserBySession(event)
 
-  setCookie(event, 'game-id', gameId, {
-    httpOnly: true,
-    sameSite: 'lax',
-  })
+  if (user) {
+    return null
+  }
 
-  return gameId
+  const newUserState: UserState = {
+    gameId: generateIdForGame(),
+    role: 0,
+  }
+
+  setUserState(event, newUserState)
+
+  return newUserState
 })
